@@ -15,7 +15,7 @@ currentGreen = 0   # Indicates which signal is green currently
 nextGreen = (currentGreen+1)%noOfSignals    # Indicates which signal will turn green next
 currentYellow = 0   # Indicates whether yellow signal is on or off 
 
-speeds = {'car':2.25, 'bus':1.8, 'truck':1.8, 'bike':2.5}  # average speeds of vehicles
+speeds = {'car':2.0, 'bus':1.5, 'truck':1.5, 'bike':2.5}  # average speeds of vehicles
 
 # Coordinates of vehicles' start
 x = {'right':[0,0,0], 'down':[755,727,697], 'left':[1400,1400,1400], 'up':[602,627,657]}    
@@ -202,7 +202,7 @@ class Main:
     background = pygame.image.load('images/intersection.png')
 
     screen = pygame.display.set_mode(screenSize)
-    pygame.display.set_caption("SIMULATION")
+    pygame.display.set_caption("Simulador de tráfego em interseção")
 
     # Loading signal images and font
     redSignal = pygame.image.load('images/signals/red.png')
@@ -219,7 +219,7 @@ class Main:
             if event.type == pygame.QUIT:
                 sys.exit()
 
-        screen.blit(background,(0,0))   # display background in simulation
+        screen.blit(background,(-10,-20))   # display background in simulation
         for i in range(0,noOfSignals):  # display signal and set timer according to current status: green, yello, or red
             if(i==currentGreen):
                 if(currentYellow==1):
